@@ -19,12 +19,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: ./
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        title: Test Issue
-        body: Test issue body
-        assignees: |
-          alialaa
-          alialaa17
+      - uses: actions/checkout@v3
+      - uses: ./
+        id: issue
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Test Issue
+          body: Test issue body
+          assignees: |-
+            alialaa
+            alialaa17
+      - run: echo ${{ steps.issue.outputs.issue }}
