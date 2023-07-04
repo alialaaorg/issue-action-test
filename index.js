@@ -9,7 +9,7 @@ async function run() {
     const title = core.getInput("title");
     const body = core.getInput("body");
     const assignees = core.getInput("assignees");
-console.log(assignees)
+console.log(assignees.split("\n"))
     const octokit = github.getOctokit(token);
 
 
@@ -21,6 +21,7 @@ console.log(assignees)
       body,
       assignees: assignees ? assignees.split("\n") : undefined
     });
+    console.log(response)
 
     core.setOutput("issue", JSON.stringify(response.data));
   } catch (error) {
