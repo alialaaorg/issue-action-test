@@ -28,5 +28,4 @@ jobs:
           body: Test issue body
           assignees: |
             alialaa
-            alialaa17
       - run: echo ${{ steps.issue.outputs.issue }}
